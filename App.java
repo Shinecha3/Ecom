@@ -52,18 +52,12 @@ public class App{
 
         cart.addItem("P001", 3); // Apple x3
         check("Add new item correctly", cart.getItemCount() == 1 && cart.getTotalPrice() == 20.0); // BOGO: pay for 2
-        System.out.println(cart.getItemCount()+" "+cart.getTotalPriceNow()); 
-        cart.printCart();
         
         cart.addItem("P001", 2); // Apple x3+2=5
         check("Add existing item increases quantity", cart.getItemCount() == 1 && cart.getTotalPrice() == 30.0); // BOGO: pay for 3
-        System.out.println(cart.getItemCount()+" "+cart.getTotalPriceNow());   
-        cart.printCart();
 
         cart.addItem("P002", 5); // Soda x5
         check("Add another new item", cart.getItemCount() == 2 && cart.getTotalPrice() == 30.0 + 25.0); // 55.0
-        System.out.println(cart.getItemCount()+" "+cart.getTotalPriceNow()); 
-        cart.printCart();
         
         cart.addItem("P002", 1); // Soda x5+1=6
         check("Add item to meet bulk discount threshold", cart.getItemCount() == 2 && cart.getTotalPrice() == 30.0 + (30.0 * 0.9)); // 30 + 27 = 57.0
